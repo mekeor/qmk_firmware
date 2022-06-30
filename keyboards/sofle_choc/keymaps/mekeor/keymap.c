@@ -70,9 +70,9 @@ td_state dance(qk_td_state *state) {
 void td_cg_finished(qk_td_state *state, void *user_data) {
   cg_state = dance(state);
   switch (cg_state) {
-  case TD_1: SEND_STRING("cg one"); break;
-  case TD_2: SEND_STRING("cg two"); break;
-  case TD_3: SEND_STRING("cg three"); break;
+  case TD_1: register_mods(MOD_LCTL); break;
+  case TD_2: register_mods(MOD_LGUI); break;
+  case TD_3: register_mods(MOD_LCTL | MOD_LGUI); break;
   default: break;
   }
 }
