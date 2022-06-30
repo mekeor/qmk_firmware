@@ -23,15 +23,15 @@ typedef enum {
   TD_UNKNOWN
 } td_state;
 
-static td_state td_current;
+static td_state cg_state, sa_state;
 
 td_state dance(qk_td_state *state);
 
 void td_cg_finished(qk_td_state *state, void *user_data);
 void td_cg_reset(qk_td_state *state, void *user_data);
 
-void td_sft_alt_finished(qk_td_state *state, void *user_data);
-void td_sft_alt_reset(qk_td_state *state, void *user_data);
+void td_sa_finished(qk_td_state *state, void *user_data);
+void td_sa_reset(qk_td_state *state, void *user_data);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,8 +68,8 @@ td_state dance(qk_td_state *state) {
 }
 
 void td_cg_finished(qk_td_state *state, void *user_data) {
-  td_current = dance(state);
-  switch (td_current) {
+  cg_state = dance(state);
+  switch (cg_state) {
   case TD_1: register_mods(MOD_LCTL); break;
   case TD_2: register_mods(MOD_LGUI); break;
   case TD_3: register_mods(MOD_LCTL | MOD_LGUI); break;
@@ -78,18 +78,18 @@ void td_cg_finished(qk_td_state *state, void *user_data) {
 }
 
 void td_cg_reset(qk_td_state *state, void *user_data) {
-  switch (td_current) {
+  switch (cg_state) {
   case TD_1: unregister_mods(MOD_LCTL); break;
   case TD_2: unregister_mods(MOD_LGUI); break;
   case TD_3: unregister_mods(MOD_LCTL | MOD_LGUI); break;
   default: break;
   }
-  td_current = TD_0;
+  cg_state = TD_0;
 }
 
-void td_sft_alt_finished(qk_td_state *state, void *user_data) {
-  td_current = dance(state);
-  switch (td_current) {
+void td_sa_finished(qk_td_state *state, void *user_data) {
+  sa_state = dance(state);
+  switch (sa_state) {
   case TD_1: register_mods(MOD_LSFT); break;
   case TD_2: register_mods(MOD_LALT); break;
   case TD_3: register_mods(MOD_LSFT | MOD_LALT); break;
@@ -97,19 +97,19 @@ void td_sft_alt_finished(qk_td_state *state, void *user_data) {
   }
 }
 
-void td_sft_alt_reset(qk_td_state *state, void *user_data) {
-  switch (td_current) {
+void td_sa_reset(qk_td_state *state, void *user_data) {
+  switch (sa_state) {
   case TD_1: unregister_mods(MOD_LSFT); break;
   case TD_2: unregister_mods(MOD_LALT); break;
   case TD_3: unregister_mods(MOD_LSFT | MOD_LALT); break;
   default: break;
   }
-  td_current = TD_0;
+  sa_state = TD_0;
 }
 
 qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_CG] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_cg_finished, td_cg_reset),
-  [TD_SA] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_sft_alt_finished, td_sft_alt_reset)
+  [TD_SA] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_sa_finished, td_sa_reset)
 };
 
 
@@ -117,9 +117,12 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // encoder
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-  if /* left half */ (index == 0)
+  // left half
+  if (index == 0)
     tap_code(clockwise ? KC_MS_LEFT : KC_MS_RIGHT);
-  else /* right half */
+
+  // right half
+  else
     tap_code(clockwise ? KC_MS_DOWN : KC_MS_UP);
 
   return true;
