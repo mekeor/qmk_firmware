@@ -13,9 +13,9 @@
 
 // mod-tap configuration
 
-#define IGNORE_MOD_TAP_INTERRUPT
-#define PERMISSIVE_HOLD
-#define RETRO_TAPPING
+// #define IGNORE_MOD_TAP_INTERRUPT
+// #define PERMISSIVE_HOLD
+// #define RETRO_TAPPING
 
 // mouse
 
@@ -24,3 +24,7 @@
 
 #define MK_C_OFFSET_1 10
 #define MK_C_INTERVAL 10
+
+// tap dance. can't set this here because it's set in sofle_choc/config.h
+// see also https://github.com/qmk/qmk_firmware/pull/16736#pullrequestreview-1024537375
+// #define TAPPING_TERM 1000

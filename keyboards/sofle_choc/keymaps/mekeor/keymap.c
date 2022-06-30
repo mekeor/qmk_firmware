@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX  , DE_Q     , DE_W     , DE_E     , DE_R     , DE_T     ,                       DE_Z     , DE_U     , DE_I     , DE_O     , DE_P     , DE_UDIA  ,
     KC_LSFT  , DE_A     , DE_S     , DE_D     , DE_F     , DE_G     ,                       DE_H     , DE_J     , DE_K     , DE_L     , DE_ODIA  , DE_ADIA  ,
     KC_GRAVE , DE_Y     , DE_X     , DE_C     , DE_V     , DE_B     , KC_BTN1  , KC_BTN2  , DE_N     , DE_M     , DE_COMM  , DE_DOT   , DE_MINS  , DE_HASH  ,
-                          XXXXXXX  , XXXXXXX  , XXXXXXX  , _SA      , _CG      , KC_BSPC  , KC_SPC   , KC_ENT   , KC_TAB   , XXXXXXX
+                          XXXXXXX  , XXXXXXX  , XXXXXXX  , _SA      , _CG      , KC_ENT   , KC_SPC   , KC_BSPC  , KC_TAB   , XXXXXXX
 ),
 
 };
