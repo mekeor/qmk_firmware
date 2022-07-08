@@ -13,4 +13,4 @@ MK_C_OFFSET_1 = 10
 MOUSEKEY_ENABLE = yes
 
 # tap dance
-TAP_DANCE_ENABLE = yes
+# TAP_DANCE_ENABLE = yes
