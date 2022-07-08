@@ -7,10 +7,11 @@ EXTRAKEY_ENABLE = yes
 # size
 LTO_ENABLE = yes
 
-# enable mouse keys
+# mouse keys
 MK_C_INTERVAL_1 = 10
 MK_C_OFFSET_1 = 10
 MOUSEKEY_ENABLE = yes
 
-# tap dance
 # TAP_DANCE_ENABLE = yes
+
+UNICODEMAP_ENABLE = yes

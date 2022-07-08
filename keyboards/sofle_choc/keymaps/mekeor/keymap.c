@@ -8,42 +8,82 @@
 #define _U      MO(_UMLAUT)
 #define _Y      MO(_SYMBOL)
 
-#define _U_AE    XXXXXXX
-#define _U_CC    XXXXXXX
-#define _U_CS    XXXXXXX
-#define _U_G     XXXXXXX
-#define _U_I     XXXXXXX
-#define _U_MICRO XXXXXXX
-#define _U_OE    XXXXXXX
-#define _U_SZ    XXXXXXX
-#define _U_UE    XXXXXXX
+#define _U_AE    XP(_LOWER_AE, _UPPER_AE)
+#define _U_CC    XP(_LOWER_CC, _UPPER_CC)
+#define _U_CS    XP(_LOWER_CS, _UPPER_CS)
+#define _U_G     XP(_LOWER_G,  _UPPER_G)
+#define _U_I     XP(_LOWER_I,  _UPPER_I)
+#define _U_MICRO _MICRO
+#define _U_OE    XP(_LOWER_OE, _UPPER_OE)
+#define _U_SZ    XP(_LOWER_SZ, _UPPER_SZ)
+#define _U_UE    XP(_LOWER_UE, _UPPER_UE)
 
-#define _Y_APOS  XXXXXXX
-#define _Y_ASTSK XXXXXXX
-#define _Y_AT    XXXXXXX
-#define _Y_BRL   XXXXXXX
-#define _Y_BRR   XXXXXXX
-#define _Y_BSLSH XXXXXXX
-#define _Y_CBRL  XXXXXXX
-#define _Y_CBRR  XXXXXXX
-#define _Y_CLN   XXXXXXX
-#define _Y_COMM  XXXXXXX
-#define _Y_CURR  XXXXXXX
-#define _Y_DOT   XXXXXXX
-#define _Y_EQ    XXXXXXX
-#define _Y_ET    XXXXXXX
-#define _Y_EXCL  XXXXXXX
-#define _Y_GT    XXXXXXX
-#define _Y_LT    XXXXXXX
-#define _Y_MINUS XXXXXXX
-#define _Y_PERC  XXXXXXX
-#define _Y_PRL   XXXXXXX
-#define _Y_PRR   XXXXXXX
-#define _Y_QUEST XXXXXXX
-#define _Y_QUOT  XXXXXXX
-#define _Y_SCLN  XXXXXXX
-#define _Y_SLSH  XXXXXXX
-#define _Y_UNDRS XXXXXXX
+#define _Y_APOS  KC_QUOTE
+#define _Y_ASTSK LSFT(KC_8)
+#define _Y_AT    LSFT(KC_2)
+#define _Y_BRL   KC_LEFT_BRACKET
+#define _Y_BRR   KC_RIGHT_BRACKET
+#define _Y_BSLSH KC_BACKSLASH
+#define _Y_CBRL  LSFT(KC_LEFT_BRACKET)
+#define _Y_CBRR  LSFT(KC_RIGHT_BRACKET)
+#define _Y_CLN   LSFT(KC_SEMICOLON)
+#define _Y_COMM  KC_COMMA
+#define _Y_CURR  LSFT(KC_4)
+#define _Y_DOT   KC_DOT
+#define _Y_EQ    KC_EQUAL
+#define _Y_ET    LSFT(KC_7)
+#define _Y_EXCL  LSFT(KC_1)
+#define _Y_GT    LSFT(KC_DOT)
+#define _Y_LT    LSFT(KC_COMMA)
+#define _Y_MINUS KC_MINUS
+#define _Y_PERC  LSFT(KC_5)
+#define _Y_PRL   LSFT(KC_9)
+#define _Y_PRR   LSFT(KC_0)
+#define _Y_QUEST LSFT(KC_SLASH)
+#define _Y_QUOT  LSFT(KC_QUOTE)
+#define _Y_SCLN  KC_SEMICOLON
+#define _Y_SLSH  KC_SLASH
+#define _Y_UNDRS LSFT(KC_MINUS)
+
+enum unicode_names {
+  _UPPER_AE,
+  _LOWER_AE,
+  _UPPER_CC,
+  _LOWER_CC,
+  _UPPER_CS,
+  _LOWER_CS,
+  _UPPER_G,
+  _LOWER_G,
+  _UPPER_I,
+  _LOWER_I,
+  _MICRO,
+  _UPPER_OE,
+  _LOWER_OE,
+  _UPPER_SZ,
+  _LOWER_SZ,
+  _UPPER_UE,
+  _LOWER_UE
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+  [_UPPER_AE] = 0xc4,   // Ä
+  [_LOWER_AE] = 0xe4,   // ä
+  [_UPPER_CC] = 0xc7,   // Ç
+  [_LOWER_CC] = 0xe7,   // ç
+  [_UPPER_CS] = 0x15e,  // Ş
+  [_LOWER_CS] = 0x15f,  // ş
+  [_UPPER_G]  = 0x11e,  // Ğ
+  [_LOWER_G]  = 0x11f,  // ğ
+  [_UPPER_I]  = 0x130,  // İ
+  [_LOWER_I]  = 0x131,  // ı
+  [_MICRO]    = 0xb5,   // µ
+  [_UPPER_OE] = 0xd6,   // Ö
+  [_LOWER_OE] = 0xf6,   // ö
+  [_UPPER_SZ] = 0x1e9e, // ẞ
+  [_LOWER_SZ] = 0xdf,   // ß
+  [_UPPER_UE] = 0xdc,   // Ü
+  [_LOWER_UE] = 0xfc,   // ü
+};
 
 enum sofle_layers {
   _LETTER,

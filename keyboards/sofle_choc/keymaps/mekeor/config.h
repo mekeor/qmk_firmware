@@ -28,3 +28,5 @@
 // tap dance. can't set this here because it's set in sofle_choc/config.h
 // see also https://github.com/qmk/qmk_firmware/pull/16736#pullrequestreview-1024537375
 // #define TAPPING_TERM 1000
+
+#define UNICODE_SELECTED_MODES UC_MAC
