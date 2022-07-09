@@ -118,8 +118,8 @@ enum sofle_layers {
   _LETTER,
   _UMLAUT,
   _SYMBOL,
-  _NUMBER,
   _INVISIBLE,
+  _NUMBER,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -142,17 +142,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_SYMBOL] = LAYOUT(
       _______  , _______  , _______  , _______  , _______  , _______  ,                       _______  , _______  , _______  , _______  , _______  , _______  ,
-      _______  , _Y_LT    , _Y_GT    , _Y_CBRL  , _Y_CBRR  , XXXXXXX  ,                       XXXXXXX  , _Y_PRR   , _Y_PRL   , _Y_BRL   , _Y_BRR   , _______  ,
+      _______  , _Y_LT    , _Y_GT    , _Y_CBRL  , _Y_CBRR  , XXXXXXX  ,                       XXXXXXX  , _Y_PRR   , _Y_PRL   , _Y_BRR   , _Y_BRL   , _______  ,
       _______  , _Y_EXCL  , _Y_QUEST , _Y_APOS  , _Y_QUOT  , _Y_ASTSK ,                       _Y_EQ    , _Y_DOT   , _Y_COMM  , _Y_CLN   , _Y_SCLN  , _______  ,
       _______  , _Y_AT    , _Y_CURR  , _Y_PERC  , _Y_ET    , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _Y_MINUS , _Y_UNDRS , _Y_SLSH  , _Y_BSLSH , _______  ,
-                            _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______
-  ),
-
-  [_NUMBER] = LAYOUT(
-      _______  , KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_F5    ,                       KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   , _______  ,
-      _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                       XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
-      _______  , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     ,                       KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , _______  ,
-      _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
                             _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______
   ),
 
@@ -161,6 +153,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                       XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
       _______  , KC_ESC   , KC_TAB   , KC_LEFT  , KC_RIGHT , XXXXXXX  ,                       XXXXXXX  , KC_DOWN  , KC_UP    , XXXXXXX  , KC_ENT   , _______  ,
       _______  , XXXXXXX  , XXXXXXX  , KC_HOME  , KC_END   , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , KC_PGDN  , KC_PGUP  , XXXXXXX  , XXXXXXX  , _______  ,
+                            _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______
+  ),
+
+  [_NUMBER] = LAYOUT(
+      _______  , KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_F5    ,                       KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   , _______  ,
+      _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                       XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
+      _______  , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     ,                       KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , _______  ,
+      _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
                             _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______
   ),
 
